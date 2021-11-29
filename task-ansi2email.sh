@@ -18,19 +18,7 @@ else
   exit 1
 fi
 
-#setup headers so the HTML shows properly
-cat > $tmp_email <<EOF
-From: The Task List <$sendto> 
-To: $sendto
-Subject: Daily Task Email
-MIME-Version: 1.0
-Content-Type: text/html
-Content-Disposition: inline
-EOF
-
-#pump the task information into the email
-task $report | $scripts/ansi2html.sh >> $tmp_email
-
-# Send the email
-$mail_prog $sendto < $tmp_email
-rm $tmp_email
+if [ $(task rc.verbose=nothing today | wc -l) != 0 ]
+then
+	(echo "<pre>" ; task today ; echo "</pre>") | /usr/bin/mutt -e "set content_type=text/html" -s "Task Report other for $(date)" $sendto 
+fi
