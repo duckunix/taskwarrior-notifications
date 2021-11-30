@@ -8,12 +8,11 @@ from numpy import array,append
 
 def print_html_descriptions(tasks):
     for t in tasks:
-        if 'depends' not in t:
-            if 'tags' not in t:
-                print("    <li>%s</li>" % t['description'])
-            else:
-                tags = ', '.join(t['tags']) # join tags as comma separated list
-                print("    <li>%s (%s)</li>" % (t['description'], tags))
+        if 'tags' not in t:
+            print("    <li>%s</li>" % t['description'])
+        else:
+            tags = ', '.join(t['tags']) # join tags as comma separated list
+            print("    <li>%s (%s)</li>" % (t['description'], tags))
 
 def main():
     tasks = array([])
