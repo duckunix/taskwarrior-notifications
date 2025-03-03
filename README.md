@@ -1,6 +1,8 @@
 # Taskwarrior-notifications
 A collection of scripts to provide various notifications for [taskwarrior](https://taskwarrior.org/), a commandline task management system.
 
+This is based on the work done in [this repo](https://github.com/flickerfly/taskwarrior-notifications) which has not had any updates since March 2021.
+
 ### Configuration
 Configuration of the email address and file locations can be changed in the `config` file in the root of the repo. A sample config is provided in [example.config](example.config). Simply rename this to `config` and make the appropriate edits.
 
